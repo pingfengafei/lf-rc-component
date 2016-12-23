@@ -24,7 +24,7 @@ loaders.push({
 
 module.exports = {
   entry: {
-    app: './src/index.jsx',
+    app: './src/index.js',
     libs: [
       'immutable',
       'react',
@@ -67,7 +67,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: './src/template.html',
-      title: 'Bad Friends'
+      title:'1212333331',
     }),
     new webpack.optimize.CommonsChunkPlugin('libs', 'libs.[chunkhash].js')
   ]
