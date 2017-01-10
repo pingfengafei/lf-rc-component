@@ -13,7 +13,7 @@
     "start": {
       "command": "webpack-dev-server --progress --profile --colors",
       "env": {
-        "WEBPACK_DEVTOOL": "#eval-source-map"
+        "WEBPACK_DEVTOOL": "#inline-source-map"
       }
     },
     "build": {
