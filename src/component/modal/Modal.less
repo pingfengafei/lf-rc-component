@@ -1,0 +1,52 @@
+@import "../../variable";
+
+#lf-ant-modal-wrap {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: @lf-modal-background;
+  opacity: 0.5;
+  z-index: @lf-modal-z-index;
+}
+
+.lf-ant-modal {
+  position: relative;
+  width: 500px;
+  padding: 20px;
+  background: white;
+  z-index: 1002;
+  margin: 100px auto 0 auto;
+  border-radius: @lf-modal-border-radius;
+
+  &-header {
+    overflow: hidden;
+
+    &-title {
+      float: left;
+    }
+    &-exit {
+      float: right;
+    }
+    &-exit:before {
+      content: '×';
+      display: block;
+    }
+  }
+
+  &-content {
+    margin: 20px 10px;
+  }
+
+  &-footer {
+    text-align: right;
+
+    button {
+      display: inline-block;
+    }
+    &-ok {
+      margin-left: 10px;
+    }
+  }
+}

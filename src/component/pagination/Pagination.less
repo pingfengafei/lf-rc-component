@@ -1,0 +1,89 @@
+.pagination {
+  font-family: 'Arial';
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -user-select: none;
+
+  li {
+    margin: 3px 0;
+    border: 1px solid #d9d9d9;
+    // display: inline-block;
+    //如果选用display不用float，after -1px会有bug
+    float: left;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    margin: 0 3px;
+    text-align: center;
+    border-radius: 4px;
+    list-style: none;
+    cursor: pointer;
+
+    &:hover {
+      //会覆盖掉cursor：not-allowd
+      //cursor: pointer;
+      border-color: #2db7f5;
+    }
+  }
+
+  .selected {
+    color: rgb(255, 255, 255);
+    background-color: #2db7f5;
+    border-color: #2db7f5;
+
+  }
+
+  .pagination-li-prev {
+    margin: 0 2px 0 0;
+    &:hover {
+      border-color: #d9d9d9;
+    }
+  }
+
+  .pagination-li-next {
+    margin: 0 0 0 2px;
+    &:hover {
+      border-color: #d9d9d9;
+    }
+  }
+
+  .pagination-li-prev::after {
+    content: "‹";
+    display: block;
+    margin-top: -1px;
+  }
+
+  .pagination-li-next::after {
+    content: "›";
+    display: block;
+    margin-top: -1px;
+  }
+
+  .pagination-li-prev-disabled {
+    cursor: not-allowed;
+  }
+
+  .pagination-li-next-disabled {
+    cursor: not-allowed;
+  }
+
+  .pagination-li-prev-ellipsis, .pagination-li-next-ellipsis{
+    border: none;
+    cursor: default;
+  }
+
+  .pagination-li-prev-ellipsis::after, .pagination-li-next-ellipsis::after {
+    content: '...';
+    margin-top: -1px;
+  }
+
+  ul::after {
+    content: " ";
+    display: block;
+    height: 0;
+    clear: both;
+    overflow: hidden;
+    visibility: hidden;
+  }
+}

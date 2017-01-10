@@ -1,6 +1,3 @@
-/**
- * Created by pingfengafei on 16/11/16.
- */
 "use strict";
 var webpack = require('webpack');
 var path = require('path');
@@ -9,7 +6,6 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var autoprefixer = require('autoprefixer');
 
 const HOST = process.env.HOST || "127.0.0.1";
-//const HOST = process.env.HOST || "0.0.0.0";
 const PORT = process.env.PORT || "8888";
 
 console.log(process.env.WEBPACK_DEVTOOL);
@@ -21,8 +17,7 @@ module.exports = {
     `./src/index.jsx`
   ],
   
-  // devtool: process.env.WEBPACK_DEVTOOL
-  devtool: '#source-map',
+   devtool: process.env.WEBPACK_DEVTOOL,
   
   output: {
     path: path.join(__dirname, 'public'),

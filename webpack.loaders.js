@@ -26,6 +26,6 @@ module.exports = [
   },
   {
     test: /\.(le|c)ss$/,
-    loader: "style!css?sourceMap&modules&importLoaders=1&localIdentName=[name]-[local]-[hash:base64:5]!postcss!less"
+    loader: "style!css?sourceMap!postcss!less"
   }
 ];
