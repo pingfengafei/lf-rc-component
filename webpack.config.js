@@ -3,6 +3,7 @@ var webpack = require('webpack');
 var path = require('path');
 var loaders = require('./webpack.loaders');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+// var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var autoprefixer = require('autoprefixer');
 
 const HOST = process.env.HOST || "127.0.0.1";
@@ -17,11 +18,11 @@ module.exports = {
     `./src/index.jsx`
   ],
   
-   devtool: process.env.WEBPACK_DEVTOOL,
+  devtool: process.env.WEBPACK_DEVTOOL,
   
   output: {
     path: path.join(__dirname, 'public'),
-    publicPath: '/',
+    publicPath: 'http://localhost:8888/', //指定output，解决font-face和sourceMap冲突问题
     filename: '[name].[hash].js'
   },
   resolve: {
@@ -39,7 +40,7 @@ module.exports = {
   },
   postcss: [autoprefixer({remove: false})],
   devServer: {
-    contentBase: "/",
+    contentBase: '/',
     noInfo: true,
     hot: true,
     inline: true,
@@ -51,7 +52,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: './src/template.html',
-      title:'rc-ant-design'
+      title: 'rc-ant-design'
     })
   ]
 };
