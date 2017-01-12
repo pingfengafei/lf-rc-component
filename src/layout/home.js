@@ -55,6 +55,11 @@ class Home extends Component {
     
     return (
       <div className="home-page">
+        
+        <div className="anticon icon-stepforward"></div>
+        
+        {/*<i className="fa fa-times"></i>*/}
+        
         <button style={{'margin': '20px 0'}} onClick={this.handleModalClick}>open modal</button>
         {pagination}
       </div>
