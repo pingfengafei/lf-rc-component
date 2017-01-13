@@ -2,11 +2,9 @@
  * Created by pingfengafei on 17/1/12.
  */
 import React, {Component, PropTypes} from 'react';
-import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 import './Rate.less';
 import {getOffsetLeft} from './util';
-import Star from './star';
 
 /**
  * 难点在如何画半颗星星：
@@ -53,13 +51,13 @@ class Rate extends Component {
   }
   
   handleMouseLeave() {
-    this.setState({value: this.props.value})
+    this.setState({value: this.props.value});
   }
   
   getStarValue(index, x) {
-    let starNode = ReactDOM.findDOMNode(this.refs[`ref-rate-star-${index}`]);
+    let starNode = this.refs[`ref-rate-star-${index}`];
     let left = getOffsetLeft(starNode);
-    let starNodeWidth = parseInt(window.getComputedStyle(ReactDOM.findDOMNode(this.refs[`ref-rate-star-${index}`])).width);
+    let starNodeWidth = parseInt(window.getComputedStyle(this.refs[`ref-rate-star-${index}`]).width);
     
     if (this.props.allowHalf && (x - left) < starNodeWidth / 2) { //半颗星
       return index + 0.5;
@@ -95,7 +93,8 @@ class Rate extends Component {
   
   //2个同名的ref，使用findDOMNode返回null
   render() {
-    let {count, defaultValue, disabled, selectColor, onChange, allowHalf} = this.props;
+    //let {count, defaultValue, disabled, selectColor, onChange, allowHalf} = this.props;
+    let {count} = this.props;
     let starList = [];
     for (let i = 0; i < count; i++) {
       let className = classNames(
@@ -110,16 +109,17 @@ class Rate extends Component {
         {'half-star-content-active': (i === Math.floor(this.state.value) && this.state.value % 1) ? true : false}
       );
       
+      //li不能包含li
       starList.push(<li key={`rate-star-list-${i}`}
                         ref={`ref-rate-star-${i}`}
                         onClick={this.handleClick.bind(this, i)}
                         onMouseMove={this.handleMouseMove.bind(this, i)}
                         className={classNameWithHalfStarContainer}
         >
-          <li key={`rate-star-list-${i}`}
-              onClick={this.handleClick.bind(this, i)}
-              onMouseMove={this.handleMouseMove.bind(this, i)}
-              className={classNameWithHalfStarContent}
+          <div key={`rate-star-list-${i}`}
+               onClick={this.handleClick.bind(this, i)}
+               onMouseMove={this.handleMouseMove.bind(this, i)}
+               className={classNameWithHalfStarContent}
           />
         </li>
       );

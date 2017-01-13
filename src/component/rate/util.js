@@ -35,8 +35,7 @@ function getClientPosition(elem) {
   return {
     left: x,
     top: y
-  }
-  
+  };
 }
 
 export function getOffsetLeft(elem) {

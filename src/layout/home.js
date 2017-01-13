@@ -35,7 +35,7 @@ class Home extends Component {
         count: 10,
         value: 2,
         onChange: (value) => {
-          this.handleRateChange(value)
+          this.handleRateChange(value);
         }
       },
       halfRateConfig: {
