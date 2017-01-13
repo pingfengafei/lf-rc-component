@@ -95,8 +95,7 @@ class Rate extends Component {
   
   //2个同名的ref，使用findDOMNode返回null
   render() {
-    // let {count, defaultValue, disabled, selectColor, onChange, allowHalf} = this.props;
-    let {count} = this.props;
+    let {count, defaultValue, disabled, selectColor, onChange, allowHalf} = this.props;
     let starList = [];
     for (let i = 0; i < count; i++) {
       let className = classNames(
@@ -104,6 +103,16 @@ class Rate extends Component {
         {selected: i < Math.floor(this.state.value)},
         {cursor: this.props.disabled ? false : true},
       );
+      
+      // starList.push(<Star value={this.state.value}
+      //                     disabled={disabled}
+      //                     onClick={this.handleClick}
+      //                     index={i}
+      //                     allwHalf={allowHalf}
+      //                     key=key={`rate-star-list-${i}`}
+      //                     ref={`ref-rate-star-${i}`}
+      //                     classname={className}
+      // />);
       
       //判断是否是半颗星
       if (i === Math.floor(this.state.value) && this.state.value % 1) { //带有半颗星
@@ -145,10 +154,10 @@ class Rate extends Component {
 
 /**
  * 改进：
- * 1：用onMouseMove替代onMouseOver
- * 2：onMouseOut写在ul节点上，而不是每个li节点上，有助于更好的用户体验
+ * 1：用onMouseMove替代onMouseOver done
+ * 2：onMouseOut写在ul节点上，而不是每个li节点上，有助于更好的用户体验 done
  * 3：拆分一个star组件，每个组件内含有method，减少bind的使用
- * 4: 鼠标hover到星星的间隙，动画效果优化
+ * 4: 鼠标hover到星星的间隙，动画效果优化 done
  */
 
 export default Rate;

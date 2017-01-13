@@ -98,7 +98,7 @@ class Home extends Component {
           {rate}
           <div>disable星星</div>
           {disableRate}
-          <div>半颗星星 : 老夫写不出来啊啊！！！</div>
+          <div>半颗星星</div>
           {halfRate}
         </div>
       </div>
