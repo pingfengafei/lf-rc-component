@@ -1,14 +1,16 @@
 /**
  * Created by pingfengafei on 17/1/10.
  */
+
 import React, {Component} from 'react';
 import Modal from '../component/modal/index';
 import Pagination from '../component/pagination/Pagination';
+import Rate from '../component/rate/index';
 
 class Home extends Component {
   constructor(props) {
     super(props);
-    ['handleModalClick', 'handlePaginationChange'].forEach((method) => {
+    ['handleModalClick', 'handlePaginationChange', 'handleRateChange', 'handleHalfRateChange'].forEach((method) => {
       this[method] = this[method].bind(this);
     });
     
@@ -28,8 +30,24 @@ class Home extends Component {
       paginationConfig: {
         total: 30,
         selectedPage: 10
+      },
+      rateConfig: {
+        count: 10,
+        value: 2,
+        onChange: (value) => {
+          this.handleRateChange(value)
+        }
+      },
+      halfRateConfig: {
+        count: 7,
+        value: 4,
+        allowHalf: true,
+        onChange: (value) => {
+          this.handleHalfRateChange(value);
+        }
       }
-    };
+    }
+    ;
   }
   
   handleModalClick() {
@@ -40,11 +58,22 @@ class Home extends Component {
     let paginationConfig = Object.assign(this.state.paginationConfig);
     paginationConfig.selectedPage = page;
     this.setState({paginationConfig: paginationConfig}); //可以运行
-    // this.setState({paginationConfig.selectedPage : page}); //bug
+  }
+  
+  handleRateChange(value) {
+    let rateConfig = Object.assign(this.state.rateConfig);
+    rateConfig.value = value;
+    this.setState({rateConfig: rateConfig});
+  }
+  
+  handleHalfRateChange(value) {
+    let halfRateConfig = Object.assign(this.state.halfRateConfig);
+    halfRateConfig.value = value;
+    this.setState({halfRateConfig: halfRateConfig});
   }
   
   render() {
-    
+    let modal = (<button style={{'margin': '20px 0'}} onClick={this.handleModalClick}>open modal</button>);
     let pagination = (
       <div style={{'margin': '20px 0'}} className="pagination">
         <Pagination
@@ -52,17 +81,28 @@ class Home extends Component {
           {...this.state.paginationConfig}/>
       </div>
     );
+    let rate = (<Rate {...this.state.rateConfig}/>);
+    let disableRate = (<Rate {...Object.assign({}, this.state.rateConfig, {value: 2}, {disabled: true})}/>);
+    let halfRate = (<Rate {...this.state.halfRateConfig}/>);
     
     return (
       <div className="home-page">
-        
-        <div className="anticon icon-stepforward"></div>
-        
-        {/*<i className="fa fa-times"></i>*/}
-        
-        <button style={{'margin': '20px 0'}} onClick={this.handleModalClick}>open modal</button>
-        {pagination}
+        <div>
+          <div>弹出框</div>
+          {modal}</div>
+        <div>
+          <div>分页组件</div>
+          {pagination}</div>
+        <div>
+          <div>打星星</div>
+          {rate}
+          <div>disable星星</div>
+          {disableRate}
+          <div>半颗星星 : 老夫写不出来啊啊！！！</div>
+          {halfRate}
+        </div>
       </div>
+    
     );
   }
 }
