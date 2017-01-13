@@ -104,44 +104,25 @@ class Rate extends Component {
         {cursor: this.props.disabled ? false : true},
       );
       
-      // starList.push(<Star value={this.state.value}
-      //                     disabled={disabled}
-      //                     onClick={this.handleClick}
-      //                     index={i}
-      //                     allwHalf={allowHalf}
-      //                     key=key={`rate-star-list-${i}`}
-      //                     ref={`ref-rate-star-${i}`}
-      //                     classname={className}
-      // />);
+      let classNameWithHalfStarContainer = classNames(className, 'half-star-container');
+      let classNameWithHalfStarContent = classNames(className,
+        'half-star-content',
+        {'half-star-content-active': (i === Math.floor(this.state.value) && this.state.value % 1) ? true : false}
+      );
       
-      //判断是否是半颗星
-      if (i === Math.floor(this.state.value) && this.state.value % 1) { //带有半颗星
-        let classNameWithHalfStarContainer = classNames(className, 'half-star-container');
-        let classNameWithHalfStarContent = classNames(className, 'half-star-content');
-        
-        starList.push(<li key={`rate-star-list-${i}`}
-                          ref={`ref-rate-star-${i}`}
-                          onClick={this.handleClick.bind(this, i)}
-                          onMouseMove={this.handleMouseMove.bind(this, i)}
-                          className={classNameWithHalfStarContainer}
-          >
-            <li key={`rate-star-list-${i}`}
-                onClick={this.handleClick.bind(this, i)}
-                onMouseMove={this.handleMouseMove.bind(this, i)}
-                className={classNameWithHalfStarContent}
-            />
-          </li>
-        );
-      }
-      else { //不带半颗星
-        starList.push(<li key={`rate-star-list-${i}`}
-                          ref={`ref-rate-star-${i}`}
-                          onClick={this.handleClick.bind(this, i)}
-                          onMouseMove={this.handleMouseMove.bind(this, i)}
-                          className={className}
+      starList.push(<li key={`rate-star-list-${i}`}
+                        ref={`ref-rate-star-${i}`}
+                        onClick={this.handleClick.bind(this, i)}
+                        onMouseMove={this.handleMouseMove.bind(this, i)}
+                        className={classNameWithHalfStarContainer}
+        >
+          <li key={`rate-star-list-${i}`}
+              onClick={this.handleClick.bind(this, i)}
+              onMouseMove={this.handleMouseMove.bind(this, i)}
+              className={classNameWithHalfStarContent}
           />
-        );
-      }
+        </li>
+      );
     }
     
     return (
@@ -156,7 +137,7 @@ class Rate extends Component {
  * 改进：
  * 1：用onMouseMove替代onMouseOver done
  * 2：onMouseOut写在ul节点上，而不是每个li节点上，有助于更好的用户体验 done
- * 3：拆分一个star组件，每个组件内含有method，减少bind的使用
+ * 3：拆分一个star组件，每个组件内含有method，减少bind的使用 这里不需要
  * 4: 鼠标hover到星星的间隙，动画效果优化 done
  */
 
