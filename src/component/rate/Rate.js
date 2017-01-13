@@ -6,6 +6,7 @@ import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 import './Rate.less';
 import {getOffsetLeft} from './util';
+import Star from './star';
 
 /**
  * 难点在如何画半颗星星：
@@ -24,7 +25,7 @@ class Rate extends Component {
     this.state = {
       value: 0
     };
-    ['handleClick', 'handleMouseMove', 'handleMouseOut', 'getStarValue'].forEach((method) => {
+    ['handleClick', 'handleMouseMove', 'handleMouseLeave', 'getStarValue'].forEach((method) => {
       this[method] = this[method].bind(this);
     });
   }
@@ -51,7 +52,7 @@ class Rate extends Component {
     }
   }
   
-  handleMouseOut() {
+  handleMouseLeave() {
     this.setState({value: this.props.value})
   }
   
@@ -113,13 +114,11 @@ class Rate extends Component {
                           ref={`ref-rate-star-${i}`}
                           onClick={this.handleClick.bind(this, i)}
                           onMouseMove={this.handleMouseMove.bind(this, i)}
-                          onMouseOut={this.handleMouseOut.bind(this, i)}
                           className={classNameWithHalfStarContainer}
           >
             <li key={`rate-star-list-${i}`}
                 onClick={this.handleClick.bind(this, i)}
                 onMouseMove={this.handleMouseMove.bind(this, i)}
-                onMouseOut={this.handleMouseOut.bind(this, i)}
                 className={classNameWithHalfStarContent}
             />
           </li>
@@ -130,7 +129,6 @@ class Rate extends Component {
                           ref={`ref-rate-star-${i}`}
                           onClick={this.handleClick.bind(this, i)}
                           onMouseMove={this.handleMouseMove.bind(this, i)}
-                          onMouseOut={this.handleMouseOut.bind(this, i)}
                           className={className}
           />
         );
@@ -139,10 +137,18 @@ class Rate extends Component {
     
     return (
       <div className="rate-component-container">
-        <ul>{starList}</ul>
+        <ul onMouseLeave={this.handleMouseLeave}>{starList}</ul>
       </div>
     );
   }
 }
+
+/**
+ * 改进：
+ * 1：用onMouseMove替代onMouseOver
+ * 2：onMouseOut写在ul节点上，而不是每个li节点上，有助于更好的用户体验
+ * 3：拆分一个star组件，每个组件内含有method，减少bind的使用
+ * 4: 鼠标hover到星星的间隙，动画效果优化
+ */
 
 export default Rate;
