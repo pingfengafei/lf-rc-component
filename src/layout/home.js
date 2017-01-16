@@ -6,6 +6,8 @@ import React, {Component} from 'react';
 import Modal from '../component/modal/index';
 import Pagination from '../component/pagination/Pagination';
 import Rate from '../component/rate/index';
+import Button from '../component/button/index';
+import Icon from '../component/icon';
 
 class Home extends Component {
   constructor(props) {
@@ -100,6 +102,16 @@ class Home extends Component {
           {disableRate}
           <div>半颗星星</div>
           {halfRate}
+        </div>
+        <div>
+          <div>Icon</div>
+          <Icon type="android"/>
+          <div>Icon旋转</div>
+          <Icon type="loading1" spin={true}/>
+        </div>
+        <div>
+          <h3>按钮</h3>
+          <Button loading={true} icon="hearto">hello world</Button>
         </div>
       </div>
     
