@@ -1,23 +1,5 @@
-@keyframes anticon-spin {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(359deg);
-  }
-}
-
-//为什么要inline-block才能转动？
-//inline元素没有宽高，所以不能转动（转动需要计算位置）。
-//block和inline-block元素可以转动
-.anticon-spin {
-  display: inline-block;
-  animation: anticon-spin 1s infinite linear;
-}
-
 .icon-big {
   display: inline-block;
-  font-size: 50px !important;
+  font-size: 50px;
   color: red;
 }

@@ -112,7 +112,7 @@ class Home extends Component {
         <div>Icon携带颜色和大小</div>
         <Icon className="icon-big" type="github"></Icon>
         <div>
-          <h3>按钮</h3>
+          <h3>按钮 : </h3>
           <Button loading={true} icon="hearto">hello world</Button>
         </div>
       </div>
