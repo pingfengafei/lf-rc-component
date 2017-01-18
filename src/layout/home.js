@@ -107,8 +107,10 @@ class Home extends Component {
           <div>Icon</div>
           <Icon type="android"/>
           <div>Icon旋转</div>
-          <Icon type="loading1" spin={true}/>
+          <Icon type="loading" spin={true}/>
         </div>
+        <div>Icon携带颜色和大小</div>
+        <Icon className="icon-big" type="github"></Icon>
         <div>
           <h3>按钮</h3>
           <Button loading={true} icon="hearto">hello world</Button>

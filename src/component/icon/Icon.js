@@ -3,6 +3,7 @@
  */
 import React, {Component} from 'react';
 import classNames from 'classnames';
+import './Icon.less';
 
 class Icon extends Component {
   constructor(props) {
@@ -11,7 +12,7 @@ class Icon extends Component {
   
   render() {
     const {type, spin, className = ''} = this.props;
-    let classNames1 = classNames(className, 'anticon', `icon-${type}`, {'anticon-spin': !!spin || type === 'loading'});
+    let classNames1 = classNames('anticon', className, {'anticon-spin': !!spin || type === 'loading'}, `icon-${type}`);
     return <i className={classNames1}/>;
   }
 }
