@@ -113,7 +113,14 @@ class Home extends Component {
         <Icon className="icon-big" type="github"></Icon>
         <div>
           <h3>按钮 : </h3>
-          <Button loading={false} icon="github">hello world</Button>
+          <Button style={{'marginRight': '10px'}} loading={false} type="primary" icon="github">primary</Button>
+          <Button style={{'marginRight': '10px'}} loading={false}>default</Button>
+          <Button style={{'marginRight': '10px'}} loading={false} type="ghost" icon="github">ghost</Button>
+          <Button style={{'marginRight': '10px'}} loading={true} type="dash" icon="github">dashed</Button>
+          <Button style={{'marginRight': '10px'}} type="dash" icon="github" disabled>diaabled</Button>
+          <Button style={{'marginRight': '10px'}} icon="github" shape="circle"></Button>
+          <Button style={{'marginRight': '10px'}} icon="github" size="large">large</Button>
+          <Button style={{'marginRight': '10px'}} icon="github" size="small">small</Button>
         </div>
       </div>
     

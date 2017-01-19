@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'normalize.css';
 import './style/index.less';
 import Home from './layout/home';
 require('font-awesome/css/font-awesome.css');

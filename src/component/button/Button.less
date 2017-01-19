@@ -1,0 +1,114 @@
+button:focus {
+  outline: none;
+}
+
+.ant-btn {
+  display: inline-block;
+  position: relative;
+  padding: 4px 15px;
+  border-radius: 4px;
+  box-shadow: none;
+  color: rgba(0, 0, 0, 0.65);
+  border: 1px solid #d9d9d9;
+  background-color: #f7f7f7;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+
+  &-left {
+    margin-left: 0.5em;
+  }
+
+  &[disabled],
+  &-primary[disabled],
+  &-ghost[disabled],
+  &dash[disabled] {
+    color: rgba(0, 0, 0, 0.25);
+    background-color: #f7f7f7;
+    border-color: #d9d9d9;
+    &:hover {
+      cursor: not-allowed;
+      color: rgba(0, 0, 0, 0.25);
+      background-color: #f7f7f7;
+      border-color: #d9d9d9;
+    }
+  }
+
+  //default 配置
+  &:hover {
+    background-color: #fff;
+  }
+
+  //primary 配置
+  &-primary {
+    color: #fff;
+    background-color: #0e77ca;
+
+    &:hover {
+      color: #fff;
+      background-color: #49a9ee;
+      border-color: #49a9ee;
+    }
+  }
+
+  //ghost配置
+  &-ghost {
+    background-color: transparent;
+    &:hover {
+      color: #49a9ee;
+      border-color: #49a9ee;
+    }
+  }
+
+  //dash配置
+  &-dash {
+    border: 1px dashed #d9d9d9;
+
+    &:hover {
+      color: #49a9ee;
+      border-color: #49a9ee;
+    }
+  }
+}
+
+@keyframes buttonEffect {
+  to {
+    opacity: 0;
+    top: -6px;
+    left: -6px;
+    bottom: -6px;
+    right: -6px;
+    border-width: 6px;
+  }
+}
+
+.btn-clicked:after {
+  content: '';
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  bottom: -1px;
+  left: -1px;
+  border-radius: inherit;
+  border: 0 solid #108ee9;
+  opacity: 0.4;
+
+  -webkit-animation: buttonEffect 0.36s ease-out forwards;
+  animation: buttonEffect 0.36s ease-out forwards;
+}
+
+.ant-btn-circle {
+  padding: 10px;
+  border-radius: 100%;
+  text-align: center;
+}
+
+.ant-btn-large {
+  font-size: 16px;
+  padding: 5px 16px;
+}
+
+.ant-btn-small {
+  font-size: 12px;
+  padding: 2px 10px;
+}
