@@ -113,7 +113,7 @@ class Home extends Component {
         <Icon className="icon-big" type="github"></Icon>
         <div>
           <h3>按钮 : </h3>
-          <Button loading={true} icon="hearto">hello world</Button>
+          <Button loading={false} icon="github">hello world</Button>
         </div>
       </div>
     

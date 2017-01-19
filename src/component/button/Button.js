@@ -4,6 +4,7 @@
 
 import React, {Component} from 'react';
 import classNames from 'classnames';
+import Icon from '../icon/index';
 
 
 /**
@@ -23,20 +24,10 @@ class Button extends Component {
      *
      * loading是转圈圈的按钮
      */
-      
-      // todos:写个Icon组件，现在临时先写着
-    let iconType;
-    if (loading) {
-      iconType = 'icon-loading1';
-    } else if (icon) {
-      iconType = `icon-${icon}`;
-    }
-    
     return (
-      <button
-        {...others}
-        type={htmlType || 'button'}
-      ><i className={`anticon ${iconType}`}/>{children}</button>
+      <button {...others} type={htmlType || 'button'}>
+        <Icon type={icon} spin={loading ? true : false}/>{children}
+      </button>
     );
   }
 }
