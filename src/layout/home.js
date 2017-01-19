@@ -8,6 +8,7 @@ import Pagination from '../component/pagination/Pagination';
 import Rate from '../component/rate/index';
 import Button from '../component/button/index';
 import Icon from '../component/icon';
+import Carousel from '../component/carousel';
 
 class Home extends Component {
   constructor(props) {
@@ -122,7 +123,12 @@ class Home extends Component {
           <Button style={{'marginRight': '10px'}} icon="github" size="large">large</Button>
           <Button style={{'marginRight': '10px'}} icon="github" size="small">small</Button>
         </div>
+        <div>
+          <h3>carousel : 旋转木马</h3>
+          <Carousel />
+        </div>
       </div>
+    
     
     );
   }

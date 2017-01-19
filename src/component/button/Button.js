@@ -22,23 +22,22 @@ class Button extends Component {
     super(props);
     this.addBtnClickedStyle = null;
     this.cancelBtnClickedStyle = null;
-    ['handleClick', 'removeClassName'].forEach((value) => {
+    ['handleClick'].forEach((value) => {
       this[value] = this[value].bind(this);
     })
   }
   
-  removeClassName(button) {
-    button.className = button.className.replace(' btn-clicked', '');
-  }
-  
   handleClick() {
     const buttonNode = ReactDOM.findDOMNode(this);
-    this.removeClassName(buttonNode);
+    buttonNode.classList.remove('btn-clicked');
     this.addBtnClickedStyle = setTimeout(() => {
-      buttonNode.className += ' btn-clicked'
+      // buttonNode.className += ' btn-clicked'
+      buttonNode.classList.add('btn-clicked');
     }, 10);
     clearTimeout(this.cancelBtnClickedStyle);
-    this.cancelBtnClickedStyle = setTimeout(()=>{this.removeClassName(buttonNode)}, 500);
+    this.cancelBtnClickedStyle = setTimeout(() => {
+      buttonNode.classList.remove('btn-clicked');
+    }, 500);
     
     if (this.props.handleClick) {
       this.handleClick();
