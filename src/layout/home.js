@@ -125,7 +125,13 @@ class Home extends Component {
         </div>
         <div>
           <h3>carousel : 旋转木马</h3>
-          <Carousel />
+          <Carousel>
+            <div style={{'width': '480px', 'height': '270px', 'background': 'pink'}}>1</div>
+            <div style={{'width': '480px', 'height': '270px', 'background': 'yellow'}}>2</div>
+            <div style={{'width': '480px', 'height': '270px', 'background': 'green'}}>3</div>
+            <div style={{'width': '480px', 'height': '270px', 'background': 'blue'}}>4</div>
+            <ul><li></li></ul>
+          </Carousel>
         </div>
       </div>
     
