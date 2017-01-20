@@ -40,7 +40,7 @@ class Carousel extends Component {
   render() {
     let {children} = this.props;
     let panel = <ControlPanel amount={children.length} active={this.state.active} clickIndex={this.handleClickIndex}/>;
-    let content = <Content>{children}</Content>
+    let content = <Content active={this.state.active}>{children}</Content>
     return (
       <div className="ant-carousel">
         {panel}

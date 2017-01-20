@@ -18,7 +18,6 @@ class ControlPanel extends Component {
   
   render() {
     const {amount, activeIndex} = this.props;
-    console.log(amount);
     let dots = [];
     for (let i = 0; i < amount; i++) {
       dots.push(

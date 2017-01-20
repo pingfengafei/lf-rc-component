@@ -16,21 +16,35 @@ class Content extends Component {
   }
   
   changeVisiableContent(index) {
-    //index : 下标
+    
+    console.log(this.state.index, index);
+    
+    let distance = (index - this.state.index) * 270;
+    
     let node = ReactDOM.findDOMNode(this);
     let marginTop = getComputedStyle(ReactDOM.findDOMNode(this)).marginTop;
-    node.style.marginTop = (Number.parseInt(marginTop) - 270) + 'px';
+    node.style.marginTop = (Number.parseInt(marginTop) - distance) + 'px';
+    this.setState({index: index});
   }
   
   componentDidMount() {
-    this.timeId = setInterval(() => {
-      this.changeVisiableContent();
-    }, 2000);
+    // this.timeId = setInterval(() => {
+    //   this.changeVisiableContent();
+    // }, 2000);
   }
   
   componentWillUnmount() {
     clearInterval(this.timeId);
   }
+  
+  componentWillReceiveProps(nextProps) {
+    // if (nextProps.index !== this.state.index) {
+    this.changeVisiableContent(nextProps.active);
+    //}
+    
+    // this.setState({index: nextProps.index});
+  }
+  
   
   render() {
     let {children} = this.props;
