@@ -9,7 +9,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var WebpackCleanupPlugin = require('webpack-cleanup-plugin');
 var autoprefixer = require('autoprefixer');
 
-var environment = process.env.NODE_ENV || 'production';
+var environment = process.env.NODE_ENV || 'production
 
 
 loaders.push({
