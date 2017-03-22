@@ -10,6 +10,7 @@ import Button from '../component/button/index';
 import Icon from '../component/icon';
 import Carousel from '../component/carousel';
 import Animation from '../component/animation/Animation';
+import Navigation from '../component/Navigation/';
 
 class Home extends Component {
   constructor(props) {
@@ -137,8 +138,8 @@ class Home extends Component {
           </Carousel>
         </div>
         <div>
-          <h3>测试动画</h3>
-          <Animation />
+          <h3>导航栏</h3>
+          <Navigation />
         </div>
       </div>
     );

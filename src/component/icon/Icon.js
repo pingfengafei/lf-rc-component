@@ -21,4 +21,10 @@ class Icon extends Component {
   }
 }
 
+Icon.PropTypes = {
+  type: React.PropTypes.string,
+  spin: React.PropTypes.any,
+  classNames: React.PropTypes.string
+};
+
 export default Icon;
