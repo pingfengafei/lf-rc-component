@@ -34,7 +34,6 @@ class ParentItem extends React.Component {
     
     let child = this.state.open ? this.props.children : null;
     
-    
     return (
       <div style={{marginLeft: '15px'}}>
         <li onClick={this.handleClick}>

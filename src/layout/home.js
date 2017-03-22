@@ -129,9 +129,9 @@ class Home extends Component {
           <Button style={{'marginRight': '10px'}} icon="github" size="small">small</Button>
         </div>
         <div>
-          <h3>carousel : 旋转木马 ： 卡在动画这里了，不学，不会，不练</h3>
-          <h4>一开始，想写个函数，击按钮触发动画，但是上一次动画没有渲染完成，再次点击就会cs位置错乱</h4>
-          <h4>有一天骑车等红绿灯想，突然想到debounce和throttle可以解决。但是感觉不够完美，不能解决快速移动需求，没有深究</h4>
+          <h3>carousel</h3>
+          <h4>一开始，想写个函数，上一次动画没有渲染完成，再次点击就会position错乱</h4>
+          <h4>有一天突然想到debounce和throttle可以解决。但是感觉不够完美，不能解决快速移动需求，没有深究</h4>
           <h4>今天看大神代码，想法和上一条不谋而合，分不清是高兴还是悲哀</h4>
           <Carousel>
             <div style={{'width': '480px', 'height': '270px', 'background': 'pink'}}>1</div>
