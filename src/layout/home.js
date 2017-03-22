@@ -10,6 +10,9 @@ import Button from '../component/button/index';
 import Icon from '../component/icon';
 import Carousel from '../component/carousel';
 import Animation from '../component/animation/Animation';
+import DropDown from '../component/dropDown/DropDown';
+
+
 import Navigation from '../component/Navigation/';
 
 class Home extends Component {
@@ -137,10 +140,17 @@ class Home extends Component {
             <div style={{'width': '480px', 'height': '270px', 'background': 'blue'}}>4</div>
           </Carousel>
         </div>
+        
+        <div style={{width: '150px'}}>
+          <h3>下拉框组件</h3>
+          <DropDown />
+        </div>
+        
         <div>
           <h3>导航栏</h3>
           <Navigation />
         </div>
+      
       </div>
     );
   }
