@@ -10,7 +10,8 @@
     padding: 0;
     text-align: center;
     line-height: 50px;
-    li{
+    z-index: 100;
+    li {
       margin-left: 5px;
     }
   }
@@ -33,7 +34,6 @@
 
     .ant-carousel-node-active {
       display: inline-block;
-      display: inline-block;
       width: 15px;
       height: 6px;
       border-radius: 3px;
@@ -47,8 +47,18 @@
     }
   }
 
-  .carousel-content {
-    transition: margin-top 0.3s;
+  //动的是这个组件
+  .carousel-slide-list {
+    //position: relative;
+    width: 480px;
+    height: 270px;
+    transition: transform 1s;
+    transform: translate3d(0px, 0px, 0px);
+
+    div {
+      display: inline-block;
+      position: relative;
+    }
   }
 
 }

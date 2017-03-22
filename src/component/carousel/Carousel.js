@@ -16,7 +16,8 @@ class Carousel extends Component {
     }
     this.handleMouseOver = this.handleMouseOver.bind(this);
     this.handleMouseOut = this.handleMouseOut.bind(this);
-    this.handleClickIndex = this.handleClickIndex.bind(this);
+    this.handleClickDot = this.handleClickDot.bind(this);
+    this.updateDot = this.updateDot.bind(this);
   }
   
   handleMouseOver() {
@@ -28,23 +29,37 @@ class Carousel extends Component {
     // this.setState({showPanel: false})
   }
   
-  handleClickIndex(index) {
+  handleClickDot(index) {
     this.setState({active: index});
   }
   
-  // shouldComponentUpdate(nextProps, nextStates) {
-  //   console.log(nextStates.showPanel);
-  //   return this.state.showPanel !== nextStates.showPanel;
-  // }
+  updateDot(index) {
+    console.log(index);
+    this.setState({active: index});
+  }
   
   render() {
     let {children} = this.props;
-    let panel = <ControlPanel amount={children.length} active={this.state.active} clickIndex={this.handleClickIndex}/>;
-    let content = <Content active={this.state.active}>{children}</Content>
+    let panel = (
+      <ControlPanel
+        amount={children.length}
+        active={this.state.active}
+        clickDot={this.handleClickDot}
+      />
+    );
+    let content = (
+      <Content
+        amount={children.length}
+        active={this.state.active}
+        updateDot={this.updateDot}
+      >
+        {children}
+      </Content>
+    );
     return (
       <div className="ant-carousel">
-        {panel}
         {content}
+        {panel}
       </div>
     );
   }

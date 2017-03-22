@@ -1,11 +1,11 @@
 /**
  * Created by pingfengafei on 16/12/23.
  */
-import React from 'react';
-import ReactDOM from 'react-dom';
-import 'normalize.css';
-import './style/index.less';
-import Home from './layout/home';
+import React from "react";
+import ReactDOM from "react-dom";
+import "normalize.css";
+import "./style/index.less";
+import Home from "./layout/home";
 require('font-awesome/css/font-awesome.css');
 
 /**
@@ -14,4 +14,4 @@ require('font-awesome/css/font-awesome.css');
  */
 
 
-ReactDOM.render(<Home></Home>, document.getElementsByClassName('root')[0]);
+ReactDOM.render(<Home />, document.getElementsByClassName('root')[0]);

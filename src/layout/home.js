@@ -9,6 +9,7 @@ import Rate from '../component/rate/index';
 import Button from '../component/button/index';
 import Icon from '../component/icon';
 import Carousel from '../component/carousel';
+import Animation from '../component/animation/Animation';
 
 class Home extends Component {
   constructor(props) {
@@ -89,7 +90,7 @@ class Home extends Component {
     let halfRate = (<Rate {...this.state.halfRateConfig}/>);
     
     return (
-      <div className="home-page">
+      <div className="home-page" style={{padding: '0 20px'}}>
         <div>
           <div>弹出框</div>
           {modal}</div>
@@ -124,18 +125,22 @@ class Home extends Component {
           <Button style={{'marginRight': '10px'}} icon="github" size="small">small</Button>
         </div>
         <div>
-          <h3>carousel : 旋转木马</h3>
+          <h3>carousel : 旋转木马 ： 卡在动画这里了，不学，不会，不练</h3>
+          <h4>一开始，想写个函数，击按钮触发动画，但是上一次动画没有渲染完成，再次点击就会cs位置错乱</h4>
+          <h4>有一天骑车等红绿灯想，突然想到debounce和throttle可以解决。但是感觉不够完美，不能解决快速移动需求，没有深究</h4>
+          <h4>今天看大神代码，想法和上一条不谋而合，分不清是高兴还是悲哀</h4>
           <Carousel>
             <div style={{'width': '480px', 'height': '270px', 'background': 'pink'}}>1</div>
             <div style={{'width': '480px', 'height': '270px', 'background': 'yellow'}}>2</div>
             <div style={{'width': '480px', 'height': '270px', 'background': 'green'}}>3</div>
             <div style={{'width': '480px', 'height': '270px', 'background': 'blue'}}>4</div>
-            <ul><li></li></ul>
           </Carousel>
         </div>
+        <div>
+          <h3>测试动画</h3>
+          <Animation />
+        </div>
       </div>
-    
-    
     );
   }
 }
