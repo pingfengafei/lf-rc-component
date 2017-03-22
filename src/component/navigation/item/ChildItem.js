@@ -14,7 +14,7 @@ class ChildItem extends React.Component {
   
   render() {
     const {icon, title} = this.props;
-    let iconNode;
+    let iconNode = null;
     
     if (icon) {
       const iconCls = classNames('icon', 'anticon', `icon-${icon}`);

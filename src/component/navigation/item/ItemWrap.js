@@ -10,7 +10,7 @@ import ParentItem from './ParentItem';
 
 import './Item.less';
 
-class Item extends React.Component {
+class ItemWrap extends React.Component {
   constructor(props) {
     super(props);
     this.generateNavItem = this.generateNavItem.bind(this);
@@ -44,17 +44,17 @@ class Item extends React.Component {
   
   generateNavItem(item) {
     if (item.child) { //有子菜单
-      const child = item.child.map((item, index) => {
-        return this.generateNavItem(item);
+      const child = item.child.map((content, index) => {
+        return this.generateNavItem(content);
       });
       return (
-        <ParentItem icon={item.icon} title={item.title}>
+        <ParentItem key={`item-parent-${item.title}`} icon={item.icon} title={item.title}>
           {child}
         </ParentItem>
       );
     } else { //没有子菜单
       return (
-        <ChildItem icon={item.icon} title={item.title}/>
+        <ChildItem key={`item-children-${item.title}`} icon={item.icon} title={item.title}/>
       );
     }
   }
@@ -69,4 +69,4 @@ class Item extends React.Component {
   }
 }
 
-export default Item;
+export default ItemWrap;

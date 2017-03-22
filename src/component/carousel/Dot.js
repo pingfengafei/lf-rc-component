@@ -16,7 +16,7 @@ class Dot extends Component {
   }
   
   render() {
-    let node;
+    let node = null;
     if (this.props.active === this.props.index) {
       node = (<li className="ant-carousel-node-active" onClick={this.handleClick}></li>);
     } else {

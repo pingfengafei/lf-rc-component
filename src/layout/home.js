@@ -13,7 +13,7 @@ import Animation from '../component/animation/Animation';
 import DropDown from '../component/dropDown/DropDown';
 
 
-import Navigation from '../component/Navigation/';
+import Navigation from '../component/navigation/index';
 
 class Home extends Component {
   constructor(props) {

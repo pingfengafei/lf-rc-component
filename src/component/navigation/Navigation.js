@@ -4,7 +4,7 @@
 
 import React from 'react';
 
-import Ttem from './item/ItemWrap';
+import ItemWrap from './item/ItemWrap';
 
 import './Navigation.less';
 
@@ -78,7 +78,8 @@ const navConfig = [
 /**
  * 先做垂直方向的导航栏
  * 只有2级菜单
- * 一步吃成一个大胖子，有点难
+ * 一步吃成一个大胖子，有点难,
+ * 哎嘿嘿，吃成了！！！
  */
 
 class Navigation extends React.Component {
@@ -88,7 +89,7 @@ class Navigation extends React.Component {
   
   render() {
     const nav = navConfig.map((val, index) =>
-      <Ttem key={`nav-${index}`} data={val}/>
+      <ItemWrap key={`nav-${index}`} data={val}/>
     );
     
     return (

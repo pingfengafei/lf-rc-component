@@ -32,7 +32,7 @@ class Content extends Component {
   }
   
   _changeVisiableContent() {
-    let node = ReactDOM.findDOMNode(this);
+    let node = this.node;
     let distance = this.state.index * -270;
     node.style.transform = `translate3d(0px,${distance}px,0px)`;
     this.props.updateDot(this.state.index);
@@ -66,7 +66,7 @@ class Content extends Component {
   render() {
     let {children} = this.props;
     return (
-      <div className="carousel-slide-list">
+      <div className="carousel-slide-list" ref={node=>this.node = node}>
         {children}
       </div>
     );

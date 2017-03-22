@@ -22,7 +22,7 @@ class ParentItem extends React.Component {
   
   render() {
     const {icon, title} = this.props;
-    let iconNode;
+    let iconNode = null;
     const arrowCls = classNames('icon-arrow', 'anticon', 'icon-down', {'icon-arrow-open': this.state.open});
     
     if (icon) {
