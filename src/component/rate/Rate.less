@@ -1,0 +1,44 @@
+
+.rate-component-container {
+  li {
+    display: inline-block;
+    margin-right: 3px;
+
+    div {
+      display: inline-block;
+      margin-right: 3px;
+    }
+  }
+  .icon-star:before {
+    font-size: 20px;
+    color: #e9e9e9;
+  }
+
+  .selected:before {
+    color: #f5a623;
+  }
+
+  .cursor {
+    cursor: pointer;
+  }
+
+  .half-star-container {
+    position: relative;
+  }
+
+  .half-star-content {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    left: 0;
+    top: 0;
+  }
+
+  .half-star-content-active {
+    &:before {
+      color: #f5a623;
+    }
+  }
+
+}
